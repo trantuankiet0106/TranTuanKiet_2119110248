@@ -33,7 +33,36 @@ namespace TranTuanKiet_2119110248
 
         private void Them(object sender, EventArgs e)
         {
-
+            try
+            {
+                if ((TBID.Text == "") || (TBNAME.Text == "") || TBNOISINH.Text == "")
+                {
+                    MessageBox.Show("Hãy Điền đủ thông tin !", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    EmployeeDTO cus = new EmployeeDTO();
+                    cus.IDME = int.Parse(TBID.Text);
+                    cus.NAME_EM = TBNAME.Text;
+                    cus.BIRTH = DTNS.Value;
+                    if (CBGT.Checked)
+                    {
+                        cus.GT = "NAM";
+                    }
+                    else
+                    {
+                        cus.GT = "NU";
+                    }
+                    //cus.GT = TBGT.Text;
+                    cus.NOISINH = TBNOISINH.Text;
+                    cus.KV = (DepartmentDTO)CBNAME.SelectedItem;
+                    cusBAL.NewCustomer(cus);
+                    dataGridView1.Rows.Add(cus.IDME, cus.NAME_EM, cus.BIRTH, cus.GT, cus.NOISINH, cus.KV.NAME);
+                }
+            }
+            catch (Exception) {
+                MessageBox.Show("Mã Nhân Viên Đã Tồn Tại ! ");
+            }
         }
 
         private void Xoa(object sender, EventArgs e)
@@ -43,6 +72,13 @@ namespace TranTuanKiet_2119110248
             if (result == System.Windows.Forms.DialogResult.OK)
             {
 
+                EmployeeDTO cus = new EmployeeDTO();
+                cus.IDME =int.Parse(TBID.Text);
+                cusBAL.DeleteCustomer(cus);
+
+                DataGridViewRow row = dataGridView1.CurrentRow;
+                int idx = dataGridView1.CurrentCell.RowIndex;
+                dataGridView1.Rows.RemoveAt(idx);
             }
         }
 
@@ -67,6 +103,29 @@ namespace TranTuanKiet_2119110248
             }
         }
 
-    
+        private void ROW(object sender, DataGridViewCellEventArgs e)
+        {
+            int idx = e.RowIndex;
+
+
+            if (idx >= 0)
+            {
+                TBID.Text = dataGridView1.Rows[idx].Cells[0].Value.ToString();
+                TBNAME.Text = dataGridView1.Rows[idx].Cells[1].Value.ToString();
+                DTNS.Text = dataGridView1.Rows[idx].Cells[2].Value.ToString();
+                if (dataGridView1.Rows[idx].Cells[3].Value.ToString().Length < 3)
+                {
+                    CBGT.Checked = false;
+                }
+                else
+                {
+                    CBGT.Checked = true;
+                }
+
+                TBNOISINH.Text = dataGridView1.Rows[idx].Cells[4].Value.ToString();
+                CBNAME.Text = dataGridView1.Rows[idx].Cells[5].Value.ToString();
+
+            }
+        }
     }
 }

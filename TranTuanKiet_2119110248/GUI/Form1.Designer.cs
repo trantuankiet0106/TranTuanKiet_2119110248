@@ -29,16 +29,16 @@ namespace TranTuanKiet_2119110248
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TBID = new System.Windows.Forms.TextBox();
+            this.TBNAME = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.DTNS = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.CBGT = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TBNOISINH = new System.Windows.Forms.TextBox();
             this.CBNAME = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,19 +55,19 @@ namespace TranTuanKiet_2119110248
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // TBID
             // 
-            this.textBox1.Location = new System.Drawing.Point(68, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(161, 27);
-            this.textBox1.TabIndex = 0;
+            this.TBID.Location = new System.Drawing.Point(68, 21);
+            this.TBID.Name = "TBID";
+            this.TBID.Size = new System.Drawing.Size(161, 27);
+            this.TBID.TabIndex = 0;
             // 
-            // textBox2
+            // TBNAME
             // 
-            this.textBox2.Location = new System.Drawing.Point(359, 21);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(161, 27);
-            this.textBox2.TabIndex = 1;
+            this.TBNAME.Location = new System.Drawing.Point(359, 21);
+            this.TBNAME.Name = "TBNAME";
+            this.TBNAME.Size = new System.Drawing.Size(161, 27);
+            this.TBNAME.TabIndex = 1;
             // 
             // label1
             // 
@@ -87,13 +87,13 @@ namespace TranTuanKiet_2119110248
             this.label2.TabIndex = 3;
             this.label2.Text = "Họ Tên";
             // 
-            // dateTimePicker1
+            // DTNS
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(633, 21);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(174, 27);
-            this.dateTimePicker1.TabIndex = 4;
+            this.DTNS.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DTNS.Location = new System.Drawing.Point(633, 21);
+            this.DTNS.Name = "DTNS";
+            this.DTNS.Size = new System.Drawing.Size(174, 27);
+            this.DTNS.TabIndex = 4;
             // 
             // label3
             // 
@@ -104,15 +104,15 @@ namespace TranTuanKiet_2119110248
             this.label3.TabIndex = 5;
             this.label3.Text = "Ngày Sinh";
             // 
-            // checkBox1
+            // CBGT
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(866, 25);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(87, 24);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "Giới tính";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.CBGT.AutoSize = true;
+            this.CBGT.Location = new System.Drawing.Point(866, 25);
+            this.CBGT.Name = "CBGT";
+            this.CBGT.Size = new System.Drawing.Size(87, 24);
+            this.CBGT.TabIndex = 6;
+            this.CBGT.Text = "Giới tính";
+            this.CBGT.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -132,12 +132,12 @@ namespace TranTuanKiet_2119110248
             this.label5.TabIndex = 8;
             this.label5.Text = "Nơi Sinh";
             // 
-            // textBox3
+            // TBNOISINH
             // 
-            this.textBox3.Location = new System.Drawing.Point(359, 74);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(422, 27);
-            this.textBox3.TabIndex = 9;
+            this.TBNOISINH.Location = new System.Drawing.Point(359, 74);
+            this.TBNOISINH.Name = "TBNOISINH";
+            this.TBNOISINH.Size = new System.Drawing.Size(422, 27);
+            this.TBNOISINH.TabIndex = 9;
             // 
             // CBNAME
             // 
@@ -146,7 +146,6 @@ namespace TranTuanKiet_2119110248
             this.CBNAME.Name = "CBNAME";
             this.CBNAME.Size = new System.Drawing.Size(165, 28);
             this.CBNAME.TabIndex = 10;
-          
             // 
             // dataGridView1
             // 
@@ -162,8 +161,10 @@ namespace TranTuanKiet_2119110248
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(921, 188);
             this.dataGridView1.TabIndex = 11;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.ROW);
             // 
             // Column1
             // 
@@ -268,16 +269,16 @@ namespace TranTuanKiet_2119110248
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.CBNAME);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.TBNOISINH);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.CBGT);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.DTNS);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TBNAME);
+            this.Controls.Add(this.TBID);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -289,16 +290,16 @@ namespace TranTuanKiet_2119110248
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TBID;
+        private System.Windows.Forms.TextBox TBNAME;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker DTNS;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox CBGT;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TBNOISINH;
         private System.Windows.Forms.ComboBox CBNAME;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
