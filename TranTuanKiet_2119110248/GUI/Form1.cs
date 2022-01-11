@@ -53,6 +53,11 @@ namespace TranTuanKiet_2119110248
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            List<EmployeeDTO> lstCus = cusBAL.ReadCusTomer();
+            foreach (EmployeeDTO cus in lstCus)
+            {
+                dataGridView1.Rows.Add(cus.IDME, cus.NAME_EM, cus.BIRTH.Date.ToString(), cus.GT, cus.NOISINH, cus.IDDEPART);
+            }
             List<DepartmentDTO> lstArea = areaBAL.ReadAreaList();
             foreach (DepartmentDTO areas in lstArea)
             {

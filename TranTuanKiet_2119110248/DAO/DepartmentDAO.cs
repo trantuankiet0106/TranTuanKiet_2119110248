@@ -30,12 +30,12 @@ namespace TranTuanKiet_2119110248.DAO
             conn.Close();
             return lstCus;
         }
-        public DepartmentDTO ReadArea(int ID)
+        public DepartmentDTO ReadArea(string ID)
         {
             SqlConnection conn = CreateConnection();
             conn.Open();
             SqlCommand cmd = new SqlCommand(
-                "select * from Department where ID=" + ID.ToString(), conn);
+                "select * from Department where ID= " +"'" +ID.ToString()+"'", conn);
             DepartmentDTO area = new DepartmentDTO();
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows && reader.Read())
