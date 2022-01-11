@@ -39,7 +39,7 @@ namespace TranTuanKiet_2119110248
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CBNAME = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -139,13 +139,14 @@ namespace TranTuanKiet_2119110248
             this.textBox3.Size = new System.Drawing.Size(422, 27);
             this.textBox3.TabIndex = 9;
             // 
-            // comboBox1
+            // CBNAME
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(68, 73);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(165, 28);
-            this.comboBox1.TabIndex = 10;
+            this.CBNAME.FormattingEnabled = true;
+            this.CBNAME.Location = new System.Drawing.Point(68, 73);
+            this.CBNAME.Name = "CBNAME";
+            this.CBNAME.Size = new System.Drawing.Size(165, 28);
+            this.CBNAME.TabIndex = 10;
+          
             // 
             // dataGridView1
             // 
@@ -266,7 +267,7 @@ namespace TranTuanKiet_2119110248
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.CBNAME);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -279,6 +280,7 @@ namespace TranTuanKiet_2119110248
             this.Controls.Add(this.textBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -297,7 +299,7 @@ namespace TranTuanKiet_2119110248
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CBNAME;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

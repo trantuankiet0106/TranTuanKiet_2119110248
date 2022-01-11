@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TranTuanKiet_2119110248.BLL;
+using TranTuanKiet_2119110248.DTO;
 
 namespace TranTuanKiet_2119110248
 {
     public partial class Form1 : Form
     {
+        EmployeeBLL cusBAL = new EmployeeBLL();
+        DepartmentBLL areaBAL = new DepartmentBLL();
         public Form1()
         {
             InitializeComponent();
@@ -46,5 +50,17 @@ namespace TranTuanKiet_2119110248
         {
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            List<DepartmentDTO> lstArea = areaBAL.ReadAreaList();
+            foreach (DepartmentDTO areas in lstArea)
+            {
+                CBNAME.Items.Add(areas);
+                CBNAME.DisplayMember = "NAME";
+            }
+        }
+
+    
     }
 }
