@@ -58,6 +58,7 @@ namespace TranTuanKiet_2119110248
             {
                 CBNAME.Items.Add(areas);
                 CBNAME.DisplayMember = "NAME";
+
             }
         }
 
