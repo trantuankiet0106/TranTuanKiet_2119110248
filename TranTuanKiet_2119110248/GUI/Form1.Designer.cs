@@ -61,6 +61,7 @@ namespace TranTuanKiet_2119110248
             this.TBID.Name = "TBID";
             this.TBID.Size = new System.Drawing.Size(161, 27);
             this.TBID.TabIndex = 0;
+            this.TBID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBID_KeyPress);
             // 
             // TBNAME
             // 
@@ -109,9 +110,9 @@ namespace TranTuanKiet_2119110248
             this.CBGT.AutoSize = true;
             this.CBGT.Location = new System.Drawing.Point(866, 25);
             this.CBGT.Name = "CBGT";
-            this.CBGT.Size = new System.Drawing.Size(87, 24);
+            this.CBGT.Size = new System.Drawing.Size(123, 24);
             this.CBGT.TabIndex = 6;
-            this.CBGT.Text = "Giới tính";
+            this.CBGT.Text = "Giới tính Nam";
             this.CBGT.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -157,12 +158,12 @@ namespace TranTuanKiet_2119110248
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dataGridView1.Location = new System.Drawing.Point(38, 128);
+            this.dataGridView1.Location = new System.Drawing.Point(32, 124);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(921, 188);
+            this.dataGridView1.Size = new System.Drawing.Size(941, 211);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.ROW);
             // 
@@ -192,7 +193,7 @@ namespace TranTuanKiet_2119110248
             this.Column4.HeaderText = "Giới Tính";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
-            this.Column4.Width = 125;
+            this.Column4.Width = 60;
             // 
             // Column5
             // 
@@ -206,7 +207,7 @@ namespace TranTuanKiet_2119110248
             this.Column6.HeaderText = "Đơn Vị";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
-            this.Column6.Width = 145;
+            this.Column6.Width = 200;
             // 
             // button1
             // 
@@ -256,6 +257,7 @@ namespace TranTuanKiet_2119110248
             this.button5.TabIndex = 16;
             this.button5.Text = "Đăng xuất";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
@@ -280,6 +282,7 @@ namespace TranTuanKiet_2119110248
             this.Controls.Add(this.TBNAME);
             this.Controls.Add(this.TBID);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -302,17 +305,17 @@ namespace TranTuanKiet_2119110248
         private System.Windows.Forms.TextBox TBNOISINH;
         private System.Windows.Forms.ComboBox CBNAME;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
     }
 }
 

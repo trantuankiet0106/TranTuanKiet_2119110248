@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TranTuanKiet_2119110248.BLL;
 using TranTuanKiet_2119110248.DTO;
+using TranTuanKiet_2119110248.GUI;
 
 namespace TranTuanKiet_2119110248
 {
@@ -37,31 +38,44 @@ namespace TranTuanKiet_2119110248
             {
                 if ((TBID.Text == "") || (TBNAME.Text == "") || TBNOISINH.Text == "")
                 {
-                    MessageBox.Show("Hãy Điền đủ thông tin !", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    MessageBox.Show("Hãy Điền đủ thông tin !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    EmployeeDTO cus = new EmployeeDTO();
-                    cus.IDME = int.Parse(TBID.Text);
-                    cus.NAME_EM = TBNAME.Text;
-                    cus.BIRTH = DTNS.Value;
-                    if (CBGT.Checked)
+                    if (TBID.Text.Length < 10)
                     {
-                        cus.GT = "NAM";
+                        MessageBox.Show("Phải Điền đủ 10 chữ số!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                     }
                     else
                     {
-                        cus.GT = "NU";
+                        EmployeeDTO cus = new EmployeeDTO();
+                        cus.IDME = int.Parse(TBID.Text);
+                        cus.NAME_EM = TBNAME.Text;
+                        cus.BIRTH = DTNS.Value;
+                        if (CBGT.Checked)
+                        {
+                            cus.GT = "NAM";
+                        }
+                        else
+                        {
+                            cus.GT = "NU";
+                        }
+                        //cus.GT = TBGT.Text;
+                        cus.NOISINH = TBNOISINH.Text;
+                        cus.KV = (DepartmentDTO)CBNAME.SelectedItem;
+                        cusBAL.NewCustomer(cus);
+                        dataGridView1.Rows.Add(cus.IDME, cus.NAME_EM, cus.BIRTH, cus.GT, cus.NOISINH, cus.KV.NAME);
+                        MessageBox.Show("Thêm thành công !");
                     }
-                    //cus.GT = TBGT.Text;
-                    cus.NOISINH = TBNOISINH.Text;
-                    cus.KV = (DepartmentDTO)CBNAME.SelectedItem;
-                    cusBAL.NewCustomer(cus);
-                    dataGridView1.Rows.Add(cus.IDME, cus.NAME_EM, cus.BIRTH, cus.GT, cus.NOISINH, cus.KV.NAME);
                 }
             }
             catch (Exception) {
-                MessageBox.Show("Mã Nhân Viên Đã Tồn Tại ! ");
+                if (TBID.Text.Length > 10 )
+                {
+                    MessageBox.Show("Mã Nhân Viên Tối Đa 10 Chữ Sô!,","thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                }
+                else
+                MessageBox.Show("Mã Nhân Viên Đã Tồn Tại ! ","thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
         }
 
@@ -79,11 +93,46 @@ namespace TranTuanKiet_2119110248
                 DataGridViewRow row = dataGridView1.CurrentRow;
                 int idx = dataGridView1.CurrentCell.RowIndex;
                 dataGridView1.Rows.RemoveAt(idx);
+                MessageBox.Show("Xóa thành công !");
             }
         }
 
         private void Sua(object sender, EventArgs e)
         {
+            if ((TBID.Text == "") || (TBNAME.Text == "") || TBNOISINH.Text == "")
+            {
+                MessageBox.Show("Điền Đủ thông tin ! ", "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                DataGridViewRow row = dataGridView1.CurrentRow;
+                EmployeeDTO cus = new EmployeeDTO();
+                cus.IDME = int.Parse(TBID.Text);
+                cus.NAME_EM = TBNAME.Text;
+                cus.BIRTH = DTNS.Value;
+                if (CBGT.Checked)
+                {
+                    cus.GT = "NAM";
+                }
+                else
+                {
+                    cus.GT = "NU";
+                }
+                cus.NOISINH = TBNOISINH.Text;
+                cus.KV = (DepartmentDTO)CBNAME.SelectedItem;
+                cusBAL.EditCustomer(cus);
+
+
+                row.Cells[0].Value = cus.IDME;
+                row.Cells[1].Value = cus.NAME_EM;
+                row.Cells[2].Value = cus.BIRTH;
+                row.Cells[3].Value = cus.GT;
+                row.Cells[4].Value = cus.NOISINH;
+                row.Cells[5].Value = cus.IDDEPART;
+                MessageBox.Show("sữa thành công !");
+            }
+          
+            
 
         }
 
@@ -127,5 +176,25 @@ namespace TranTuanKiet_2119110248
 
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+          
+            this.Hide();
+            form2.ShowDialog();
+            this.Show();
+            this.Close();
+        }
+
+        private void TBID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+
     }
 }
