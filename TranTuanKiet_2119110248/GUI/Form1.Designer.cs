@@ -29,6 +29,7 @@ namespace TranTuanKiet_2119110248
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.TBID = new System.Windows.Forms.TextBox();
             this.TBNAME = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -150,6 +151,7 @@ namespace TranTuanKiet_2119110248
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -263,6 +265,7 @@ namespace TranTuanKiet_2119110248
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1002, 436);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
